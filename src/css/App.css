@@ -1,6 +1,13 @@
 .container {
     width: 500px;
-    height: 200px;
+    height: 2000px;
     margin: 0 auto;
     background-size: cover;
+    background-color: #E0CFD3;
+    margin-top: -10px;
+    color: #2B3A46;
+}
+
+body {
+    background-color: rgba(224, 207, 211, 0.9);
 }

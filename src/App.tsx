@@ -1,15 +1,17 @@
 import React from 'react';
 import './css/App.css';
-import { BrowserRouter } from 'react-router-dom';
-import Routes from './Routes';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Main from './components/Main';
+import Header from './components/Header';
 
-interface Props {}
-
-const App = ({  }: Props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="container">
-        <Routes />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />} />
+        </Routes>
       </div>
     </BrowserRouter>
   );
