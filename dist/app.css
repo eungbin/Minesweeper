@@ -3,7 +3,7 @@
   \*******************************************************************/
 .container {
     width: 500px;
-    height: 2000px;
+    height: 1000px;
     margin: 0 auto;
     background-size: cover;
     background-color: #E0CFD3;
@@ -25,6 +25,12 @@ body {
   \**********************************************************************/
 .menu {
   height: 3.5rem;
+  /*     드래그 방지      */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* ***************** */
 }
 
 .menu-item {
