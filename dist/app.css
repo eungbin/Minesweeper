@@ -20,6 +20,11 @@ body {
 .title {
   text-align: center;
 }
+
+.buttonWrapper {
+  margin-top: 20px;
+  width: 500px;
+}
 /*!***********************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/MineGif.css ***!
   \***********************************************************************/
