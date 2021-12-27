@@ -18,7 +18,7 @@ export default function Button({width, height, color, text, hColor, aColor}: But
   )
 }
 
-const CustomButton = styled.div<{ width: string, height: string, color: string, hColor: string, aColor: string }>`
+const CustomButton = styled.button<{ width: string, height: string, color: string, hColor: string, aColor: string }>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   background-color: ${(props) => props.color};
