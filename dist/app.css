@@ -76,3 +76,10 @@ div.gifWrapper {
 .title {
   text-align: center;
 }
+/*!******************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/Td.css ***!
+  \******************************************************************/
+.boardTd {
+  width: 20px;
+  height: 20px;
+}

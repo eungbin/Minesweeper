@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/Game.css';
+import Board from './Board';
 
 /* 초기 지뢰찾기게임 게임 보드 생성 */
 const createBoard = (boardRow: number, boardColumn: number) => {
@@ -19,6 +20,7 @@ const createBoard = (boardRow: number, boardColumn: number) => {
 const drawMine = (mine: number, board: number[][], boardRow: number, boardColumn: number) => {
   let random_r: number;
   let random_c: number;
+
   while(mine > 0) {
     random_r = Math.floor(Math.random() * boardRow);
     random_c = Math.floor(Math.random() * boardColumn);
@@ -80,17 +82,15 @@ const Game = () => {
   const boardRow: number = 20;
   const boardColumn: number = 10;
   const mine: number = 20;
-  let board: number[][] = createBoard(boardRow, boardColumn);
-  board = drawMine(mine, board, boardRow, boardColumn);
-  board = calSpaceNumber(board);
-  console.log(board);
+
+  let preBoard: number[][] = createBoard(boardRow, boardColumn);
+  preBoard = drawMine(mine, preBoard, boardRow, boardColumn);
+  preBoard = calSpaceNumber(preBoard);
   
   return (
     <>
       <div className="title"><h1>지뢰찾기 게임</h1></div>
-      <table>
-        
-      </table>
+      {preBoard === undefined ? <h1>Loading...</h1> : <Board board={preBoard}/>}
     </>
   )
 }
