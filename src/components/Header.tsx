@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <>
       <div className="menu">
-        <div className="menu-item">홈</div>
+        <Link to="/"><div className="menu-item">홈</div></Link>
         <div className="menu-item">최고점수</div>
         <div className="menu-item">제작자</div>
       </div>

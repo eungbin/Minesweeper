@@ -18,6 +18,7 @@
   cursor: pointer;
   transition: background-color 0.3s;
   text-decoration: none;
+  color: #2B3A46;
 }
 
 .menu-item:hover {
