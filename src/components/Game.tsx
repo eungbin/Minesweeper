@@ -2,11 +2,11 @@ import React from 'react';
 import '../css/Game.css';
 
 /* 초기 지뢰찾기게임 게임 보드 생성 */
-const createBoard = (boardLen: number) => {
+const createBoard = (boardRow: number, boardColumn: number) => {
   let row: number[] = [];
   let board: Array<number>[] = [];
-  for(let i: number = 0; i<boardLen; i++) {
-    for(let j: number = 0; j<boardLen; j++) {
+  for(let i: number = 0; i<boardRow; i++) {
+    for(let j: number = 0; j<boardColumn; j++) {
       row.push(0);
     }
     board.push(row);
@@ -16,12 +16,12 @@ const createBoard = (boardLen: number) => {
 }
 
 /* 초기 지뢰찾기게임 보드에 지뢰를 매설하는 작업 */
-const drawMine = (mine: number, board: number[][]) => {
+const drawMine = (mine: number, board: number[][], boardRow: number, boardColumn: number) => {
   let random_r: number;
   let random_c: number;
   while(mine > 0) {
-    random_r = Math.floor(Math.random() * 10);
-    random_c = Math.floor(Math.random() * 10);
+    random_r = Math.floor(Math.random() * boardRow);
+    random_c = Math.floor(Math.random() * boardColumn);
     
     if(board[random_r][random_c] === 0) {
       board[random_r][random_c] = -1;
@@ -77,10 +77,11 @@ const findMine_C = (board: number[][], r: number, c: number, mine: number) => {
 }
 
 const Game = () => {
-  const boardLen: number = 10;
+  const boardRow: number = 20;
+  const boardColumn: number = 10;
   const mine: number = 20;
-  let board: number[][] = createBoard(boardLen);
-  board = drawMine(mine, board);
+  let board: number[][] = createBoard(boardRow, boardColumn);
+  board = drawMine(mine, board, boardRow, boardColumn);
   board = calSpaceNumber(board);
   console.log(board);
   
