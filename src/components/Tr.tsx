@@ -9,7 +9,7 @@ export default function Tr({row}: trProps) {
   console.log(row);
   return (
     <tr>
-      {row.map(i => {
+      {row.map((i: number, index: number) => {
         <Td column={i} />
       })}
     </tr>
