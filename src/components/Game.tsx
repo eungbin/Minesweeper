@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../css/Game.css';
 import Board from './Board';
-
-interface boardObject {
-  value: number;
-  status: number;
-}
+import { boardObject } from '../interface/boardObject';
 
 /* 초기 지뢰찾기게임 게임 보드 생성 */
 const createBoard = (boardRow: number, boardColumn: number) => {
@@ -13,7 +9,7 @@ const createBoard = (boardRow: number, boardColumn: number) => {
   let board: Array<boardObject>[] = [];
   for(let i: number = 0; i<boardRow; i++) {
     for(let j: number = 0; j<boardColumn; j++) {
-      row.push({value: 0, status: 0});
+      row.push({value: 0, status: "close"});
     }
     board.push(row);
     row = [];

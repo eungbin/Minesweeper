@@ -1,10 +1,6 @@
 import React from 'react';
 import Td from './Td';
-
-interface boardObject {
-  value: number;
-  status: number;
-}
+import { boardObject } from '../interface/boardObject';
 
 interface trProps {
   row: boardObject[];

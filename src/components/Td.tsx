@@ -1,10 +1,6 @@
 import React from 'react';
 import '../css/Td.css';
-
-interface boardObject {
-  value: number;
-  status: number;
-}
+import { boardObject } from '../interface/boardObject';
 
 interface tdProps {
   column: boardObject;
@@ -12,13 +8,13 @@ interface tdProps {
 }
 
 export default function Td({column}: tdProps) {
-  if(column.status === 0) {
+  if(column.status === "close") {
     return (
       <td className="boardTd">
         
       </td>
     )
-  } else if(column.status === 1) {
+  } else if(column.status === "open") {
     return (
       <td className="boardTd">
         {column.value}
