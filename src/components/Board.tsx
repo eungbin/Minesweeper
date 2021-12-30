@@ -10,7 +10,7 @@ export default function Board({board}: boardProps) {
     <table>
       <tbody>
         {board.map((i: number[], index: number) => (
-           <Tr row={i} rowIndex={index} />
+           <Tr row={i} key={index} />
         ))}
       </tbody>
     </table>

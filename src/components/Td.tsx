@@ -3,10 +3,10 @@ import '../css/Td.css';
 
 interface tdProps {
   column: number;
-  colIndex: number;
+  key: number;
 }
 
-export default function Td({column, colIndex}: tdProps) {
+export default function Td({column}: tdProps) {
   return (
     <td className="boardTd">
       {column}

@@ -81,7 +81,7 @@ const findMine_C = (board: number[][], r: number, c: number, mine: number) => {
 const Game = () => {
   const boardRow: number = 10;
   const boardColumn: number = 10;
-  const mine: number = 10;
+  const mine: number = 20;
 
   let preBoard: number[][] = createBoard(boardRow, boardColumn);
   preBoard = drawMine(mine, preBoard, boardRow, boardColumn);
