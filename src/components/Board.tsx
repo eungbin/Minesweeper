@@ -6,12 +6,13 @@ interface boardProps {
 }
 
 export default function Board({board}: boardProps) {
-  console.log(board);
   return (
     <table>
-      {board.map((i: number[], index: number) => {
-        <Tr row={i} />
-      })}
+      <tbody>
+        {board.map((i: number[], index: number) => (
+           <Tr row={i} rowIndex={index} />
+        ))}
+      </tbody>
     </table>
   )
 }

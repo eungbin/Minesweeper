@@ -79,9 +79,9 @@ const findMine_C = (board: number[][], r: number, c: number, mine: number) => {
 }
 
 const Game = () => {
-  const boardRow: number = 20;
+  const boardRow: number = 10;
   const boardColumn: number = 10;
-  const mine: number = 20;
+  const mine: number = 10;
 
   let preBoard: number[][] = createBoard(boardRow, boardColumn);
   preBoard = drawMine(mine, preBoard, boardRow, boardColumn);
@@ -90,7 +90,7 @@ const Game = () => {
   return (
     <>
       <div className="title"><h1>지뢰찾기 게임</h1></div>
-      {preBoard === undefined ? <h1>Loading...</h1> : <Board board={preBoard}/>}
+      <div className="board">{preBoard === undefined ? <h1>Loading...</h1> : <Board board={preBoard}/>}</div>
     </>
   )
 }
