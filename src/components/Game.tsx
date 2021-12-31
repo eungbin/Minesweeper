@@ -5,11 +5,14 @@ import { boardObject } from '../interface/boardObject';
 
 /* 초기 지뢰찾기게임 게임 보드 생성 */
 const createBoard = (boardRow: number, boardColumn: number) => {
+  console.log("TEST");
+  let index = 0;
   let row: boardObject[] = [];
-  let board: Array<boardObject>[] = [];
+  const board: Array<boardObject>[] = [];
   for(let i: number = 0; i<boardRow; i++) {
     for(let j: number = 0; j<boardColumn; j++) {
-      row.push({value: 0, status: "close"});
+      row.push({value: 0, status: "close", index: index});
+      index += 1;
     }
     board.push(row);
     row = [];
@@ -79,21 +82,32 @@ const findMine_C = (board: boardObject[][], r: number, c: number, mine: number) 
   return mine;
 }
 
+const boardRow: number = 10;
+const boardColumn: number = 10;
+const mine: number = 20;
+
+const preBoard: boardObject[][] = createBoard(boardRow, boardColumn);
+drawMine(mine, preBoard, boardRow, boardColumn);
+calSpaceNumber(preBoard);
+
 const Game = () => {
-  const boardRow: number = 10;
-  const boardColumn: number = 10;
-  const mine: number = 20;
-
-  let preBoard: boardObject[][] = createBoard(boardRow, boardColumn);
-  preBoard = drawMine(mine, preBoard, boardRow, boardColumn);
-  preBoard = calSpaceNumber(preBoard);
-
   const [board, setBoard] = useState(preBoard);
+
+  const onClick = (e) => {
+    const r: number = Math.floor(e.target.id / boardColumn);
+    const c: number = e.target.id % boardColumn;
+    preBoard[r][c].status = "open";
+    setBoard(preBoard);
+  }
+
+  useEffect(() => {
+    console.log("Board Changed");
+  }, [board]);
   
   return (
     <>
       <div className="title"><h1>지뢰찾기 게임</h1></div>
-      <div className="board">{board === null ? <h1>Loading...</h1> : <Board board={board} />}</div>
+      <div className="board">{board === null ? <h1>Loading...</h1> : <Board board={board} onClick={onClick} />}</div>
     </>
   )
 }
