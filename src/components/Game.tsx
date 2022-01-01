@@ -92,17 +92,20 @@ calSpaceNumber(preBoard);
 
 const Game = () => {
   const [board, setBoard] = useState(preBoard);
+  const [lastClicked, setLastClicked] = useState(null);
 
   const onClick = (e) => {
     const r: number = Math.floor(e.target.id / boardColumn);
     const c: number = e.target.id % boardColumn;
     preBoard[r][c].status = "open";
+    console.log("Click");
     setBoard(preBoard);
+    setLastClicked([r, c]);
   }
 
-  useEffect(() => {
-    console.log("Board Changed");
-  }, [board]);
+  // useEffect(() => {
+  //   console.log("Board Changed");
+  // }, [board]);
   
   return (
     <>
