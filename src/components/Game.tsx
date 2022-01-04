@@ -22,26 +22,4 @@ const Game = () => {
   )
 }
 
-const Button = styled.button`
-  width: 80px;
-  height: 50px;
-  background-color: white;
-  border-radius: 15px;
-  border: 1px solid black;
-  margin: 0 auto;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  &:hover {
-    background-color: pink;
-  };
-  &:active {
-    background-color: aqua;
-  }
-`;
-
 export default Game;
