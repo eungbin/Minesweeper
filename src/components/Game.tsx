@@ -52,23 +52,22 @@ const Game = () => {
     <>
       <div className="title"><h1>지뢰찾기 게임</h1></div>
       <div className="buttonWrapper-game">
-        <button id="open" onClick={changeClickStatus}>OPEN</button>
-        <button id="flag" onClick={changeClickStatus}>FLAG</button>
-        <button id="q_mark" onClick={changeClickStatus}>Q_MARK</button>
+        <Button id="open" onClick={changeClickStatus}>OPEN</Button >
+        <Button id="flag" onClick={changeClickStatus}>FLAG</Button>
+        <Button id="q_mark" onClick={changeClickStatus}>Q_MARK</Button>
       </div>
       <div className="board">{board === null ? <h1>Loading...</h1> : <Board board={board} onClick={onClick} />}</div>
     </>
   )
 }
 
-styled.button`
-  width: 50px;
+const Button = styled.button`
+  width: 80px;
   height: 50px;
   background-color: white;
   border-radius: 15px;
+  border: 1px solid black;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s;
