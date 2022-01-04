@@ -1,4 +1,4 @@
-import { boardObject } from "../interface/boardObject";
+import { boardObject, gameStatus } from "../interface/boardObject";
 
 const findSpace = (board: boardObject[][], r: number, c: number) => {
   if((r-1) >= 0) {        // 현재 인덱스를 기준으로 위쪽 행 3개의 칸 검사
@@ -41,4 +41,27 @@ export const openSpace = (board: boardObject[][], r: number, c: number) => {
   if(board[r][c].value === 0) {
     findSpace(board, r, c);
   }
+}
+
+const isMine = (board: boardObject[][], r: number, c: number) => {
+  if(board[r][c].value === -1) {
+    if(board[r][c].status === "flag") {
+      return 1;
+    }
+  }
+  return 0;
+}
+
+export const flagSpace = (board: boardObject[][], allMines: number) => {
+  let mines = 0;
+  let gameStatus: gameStatus = "ing";
+  for(let i: number=0; i<board.length; i++) {
+    for(let j: number=0; j<board[i].length; j++) {
+      mines += isMine(board, i, j);
+    }
+  }
+  if(mines === allMines) {
+    gameStatus = "fin";
+  }
+  return gameStatus;
 }

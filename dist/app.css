@@ -85,6 +85,14 @@ div.gifWrapper {
 table {
   margin: auto;
 }
+
+.buttonWrapper-game {
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+  margin:0 auto;
+  margin-bottom: 20px;
+}
 /*!******************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/Td.css ***!
   \******************************************************************/

@@ -26,5 +26,17 @@ export default function Td({column, onClick}: tdProps) {
         {column.value}
       </td>
     )
+  } else if(column.status === "flag") {
+    return (
+      <td className="boardTd" style={{backgroundColor:"pink"}} id={column.index.toString()}>
+        F
+      </td>
+    )
+  } else if(column.status === "q_mark") {
+    return (
+      <td className="boardTd" style={{backgroundColor:"aqua"}} id={column.index.toString()}>
+        ?
+      </td>
+    )
   }
 }

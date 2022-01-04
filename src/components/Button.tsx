@@ -8,12 +8,14 @@ interface ButtonProps {
   text: string;
   hColor: string;
   aColor: string;
+  onClick?: (e: any) => void;
+  id?: string;
 }
 
-export default function Button({width, height, color, text, hColor, aColor}: ButtonProps) {
+export default function Button({width, height, color, text, hColor, aColor, onClick, id}: ButtonProps) {
   return (
     <CustomButton width={width} height={height} color={color} hColor={hColor} aColor={aColor}>
-      <span style={{width:"100%", textAlign:"center"}}>{text}</span>
+      <span id={id} onClick={onClick} style={{width:"100%", textAlign:"center"}}>{text}</span>
     </CustomButton>
   )
 }
