@@ -1,9 +1,9 @@
 import React from 'react';
 import '../css/Td.css';
-import { boardObject } from '../interface/boardObject';
+import { BoardObject } from '../interface/BoardObject';
 
 interface tdProps {
-  column: boardObject;
+  column: BoardObject;
   key: number;
   onClick: Function;
 }

@@ -1,17 +1,17 @@
 import React, {useState} from 'react';
 import Tr from './Tr';
-import { boardObject, clickStatus, gameStatus } from '../interface/boardObject';
+import { BoardObject, clickStatus, gameStatus } from '../interface/BoardObject';
 import styled from "styled-components";
 import * as afterclick from '../libs/afterClick';
 
 interface boardProps {
-  propsBoard: boardObject[][];
+  propsBoard: BoardObject[][];
   mine: number;
 }
 
 export default function Board({propsBoard, mine}: boardProps) {
-  const [board, setBoard] = useState<boardObject[][]>(propsBoard);
-  const preBoard: boardObject[][] = board;
+  const [board, setBoard] = useState<BoardObject[][]>(propsBoard);
+  const preBoard: BoardObject[][] = board;
   const [clickStatus, setClickStatus] = useState<clickStatus>('open');
   const [gameStatus, setGameStatus] = useState<gameStatus>("ing");
   const boardColumn = propsBoard[0].length;
@@ -51,7 +51,7 @@ export default function Board({propsBoard, mine}: boardProps) {
       </div>
       <table>
         <tbody>
-          {board.map((i: boardObject[], index: number) => (
+          {board.map((i: BoardObject[], index: number) => (
             <Tr row={i} key={index} onClick={onClick} />
           ))}
         </tbody>

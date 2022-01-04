@@ -1,6 +1,6 @@
-import { boardObject, gameStatus } from "../interface/boardObject";
+import { BoardObject, gameStatus } from "../interface/BoardObject";
 
-const findSpace = (board: boardObject[][], r: number, c: number) => {
+const findSpace = (board: BoardObject[][], r: number, c: number) => {
   if((r-1) >= 0) {        // 현재 인덱스를 기준으로 위쪽 행 3개의 칸 검사
     findSpace_C(board, r-1, c);
   }
@@ -10,7 +10,7 @@ const findSpace = (board: boardObject[][], r: number, c: number) => {
   findSpace_C(board, r, c);   // 현재 인덱스를 기준으로 가운데 행 3개의 칸 검사
 }
 
-const findSpace_C = (board: boardObject[][], r: number, c: number) => {
+const findSpace_C = (board: BoardObject[][], r: number, c: number) => {
   if(board[r][c].status == 'close') {
     if(board[r][c].value === 0) {
       board[r][c].status = 'open';
@@ -37,13 +37,13 @@ const findSpace_C = (board: boardObject[][], r: number, c: number) => {
   }
 }
 
-export const openSpace = (board: boardObject[][], r: number, c: number) => {
+export const openSpace = (board: BoardObject[][], r: number, c: number) => {
   if(board[r][c].value === 0) {
     findSpace(board, r, c);
   }
 }
 
-const isMine = (board: boardObject[][], r: number, c: number) => {
+const isMine = (board: BoardObject[][], r: number, c: number) => {
   if(board[r][c].value === -1) {
     if(board[r][c].status === "flag") {
       return 1;
@@ -52,7 +52,7 @@ const isMine = (board: boardObject[][], r: number, c: number) => {
   return 0;
 }
 
-export const flagSpace = (board: boardObject[][], allMines: number) => {
+export const flagSpace = (board: BoardObject[][], allMines: number) => {
   let mines = 0;
   let gameStatus: gameStatus = "ing";
   for(let i: number=0; i<board.length; i++) {

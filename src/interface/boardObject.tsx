@@ -1,6 +1,6 @@
 type status = "open" | "close" | "flag" | "q_mark";
 
-export interface boardObject {
+export interface BoardObject {
   value: number;
   status: status;
   index: number;

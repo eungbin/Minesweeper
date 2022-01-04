@@ -1,10 +1,10 @@
-import { boardObject } from "../interface/boardObject";
+import { BoardObject } from "../interface/BoardObject";
 
 
 export const createBoard = (boardRow: number, boardColumn: number) => {
   let index = 0;
-  let row: boardObject[] = [];
-  const board: Array<boardObject>[] = [];
+  let row: BoardObject[] = [];
+  const board: Array<BoardObject>[] = [];
   for(let i: number = 0; i<boardRow; i++) {
     for(let j: number = 0; j<boardColumn; j++) {
       row.push({value: 0, status: "close", index: index});
@@ -17,7 +17,7 @@ export const createBoard = (boardRow: number, boardColumn: number) => {
 }
 
 /* 초기 지뢰찾기게임 보드에 지뢰를 매설하는 작업 */
-export const drawMine = (mine: number, board: boardObject[][], boardRow: number, boardColumn: number) => {
+export const drawMine = (mine: number, board: BoardObject[][], boardRow: number, boardColumn: number) => {
   let random_r: number;
   let random_c: number;
 
@@ -34,7 +34,7 @@ export const drawMine = (mine: number, board: boardObject[][], boardRow: number,
 }
 
 /* 지뢰가 없는 공간들에 주위 지뢰 개수에 따라 숫자를 부여하는 작업 */
-export const calSpaceNumber = (board: boardObject[][]) => {
+export const calSpaceNumber = (board: BoardObject[][]) => {
   let mines: number = 0; // 해당 칸 주위의 지뢰 개수
   for(let i=0; i<board.length; i++) {
     for(let j=0; j<board[i].length; j++) {
@@ -46,7 +46,7 @@ export const calSpaceNumber = (board: boardObject[][]) => {
   return board;
 }
 
-const findMine = (board: boardObject[][], r: number, c: number) => {
+const findMine = (board: BoardObject[][], r: number, c: number) => {
   let mine: number = 0;
   if(board[r][c].value == -1) { // 해당 칸이 지뢰일 경우 주위 지뢰 찾지 않고 넘긴다.
     return -1;
@@ -61,7 +61,7 @@ const findMine = (board: boardObject[][], r: number, c: number) => {
   return mine;
 }
 
-const findMine_C = (board: boardObject[][], r: number, c: number, mine: number) => {
+const findMine_C = (board: BoardObject[][], r: number, c: number, mine: number) => {
   if(board[r][c].value === -1) {
     mine += 1;
   }

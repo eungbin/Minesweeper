@@ -1,9 +1,9 @@
 import React from 'react';
 import Td from './Td';
-import { boardObject } from '../interface/boardObject';
+import { BoardObject } from '../interface/BoardObject';
 
 interface trProps {
-  row: boardObject[];
+  row: BoardObject[];
   key: number;
   onClick: Function;
 }
@@ -11,7 +11,7 @@ interface trProps {
 export default function Tr({row, onClick}: trProps) {
   return (
     <tr>
-      {row.map((i: boardObject, index: number) => (
+      {row.map((i: BoardObject, index: number) => (
         <Td column={i} key={index} onClick={onClick} />
       ))}
     </tr>
