@@ -12,7 +12,6 @@ interface boardProps {
 export default function Board({propsBoard, mine}: boardProps) {
   const [board, setBoard] = useState<boardObject[][]>(propsBoard);
   const preBoard: boardObject[][] = board;
-  // const [lastClicked, setLastClicked] = useState(null);
   const [clickStatus, setClickStatus] = useState<clickStatus>('open');
   const [gameStatus, setGameStatus] = useState<gameStatus>("ing");
   const boardColumn = propsBoard[0].length;
@@ -30,8 +29,7 @@ export default function Board({propsBoard, mine}: boardProps) {
       } else if(clickStatus === "q_mark") {
         preBoard[r][c].status = "q_mark";
       }
-      setBoard(preBoard);
-      // setLastClicked([r, c]);
+      setBoard([...preBoard]);
     }
   }
 
