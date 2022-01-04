@@ -5,16 +5,17 @@ import styled from "styled-components";
 import * as afterclick from '../libs/afterClick';
 
 interface boardProps {
-  board: boardObject[][];
+  propsBoard: boardObject[][];
   mine: number;
 }
 
-export default function Board({board, mine}: boardProps) {
-  const [preBoard, setPreBoard] = useState(board);
-  const [lastClicked, setLastClicked] = useState(null);
+export default function Board({propsBoard, mine}: boardProps) {
+  const [board, setBoard] = useState<boardObject[][]>(propsBoard);
+  const preBoard: boardObject[][] = board;
+  // const [lastClicked, setLastClicked] = useState(null);
   const [clickStatus, setClickStatus] = useState<clickStatus>('open');
   const [gameStatus, setGameStatus] = useState<gameStatus>("ing");
-  const boardColumn = board[0].length;
+  const boardColumn = propsBoard[0].length;
 
   const onClick = (e) => {
     if(gameStatus === "ing") {
@@ -29,8 +30,8 @@ export default function Board({board, mine}: boardProps) {
       } else if(clickStatus === "q_mark") {
         preBoard[r][c].status = "q_mark";
       }
-      setPreBoard(preBoard);
-      setLastClicked([r, c]);
+      setBoard(preBoard);
+      // setLastClicked([r, c]);
     }
   }
 

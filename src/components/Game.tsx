@@ -17,7 +17,7 @@ const Game = () => {
   return (
     <>
       <div className="title"><h1>지뢰찾기 게임</h1></div>
-      <div className="board">{preBoard === null ? <h1>Loading...</h1> : <Board board={preBoard} mine={mine} />}</div>
+      <div className="board">{preBoard === null ? <h1>Loading...</h1> : <Board propsBoard={preBoard} mine={mine} />}</div>
     </>
   )
 }
