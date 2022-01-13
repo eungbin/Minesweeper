@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/Game.css';
 import Board from './Board';
+import Timer from './Timer';
 import { BoardObject } from '../interface/BoardObject';
 import * as minesweeper from '../libs/initFunction';
 
@@ -17,6 +18,7 @@ const Game = () => {
     <>
       <div className="title"><h1>지뢰찾기 게임</h1></div>
       <div className="board">{preBoard === null ? <h1>Loading...</h1> : <Board propsBoard={preBoard} mine={mine} />}</div>
+      <Timer />
     </>
   )
 }
