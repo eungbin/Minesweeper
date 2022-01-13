@@ -28,13 +28,13 @@ export default function Td({column, onClick}: tdProps) {
     )
   } else if(column.status === "flag") {
     return (
-      <td className="boardTd" style={{backgroundColor:"pink"}} id={column.index.toString()}>
+      <td className="boardTd" onClick={onTdClick} style={{backgroundColor:"pink"}} id={column.index.toString()}>
         F
       </td>
     )
   } else if(column.status === "q_mark") {
     return (
-      <td className="boardTd" style={{backgroundColor:"aqua"}} id={column.index.toString()}>
+      <td className="boardTd" onClick={onTdClick} style={{backgroundColor:"aqua"}} id={column.index.toString()}>
         ?
       </td>
     )

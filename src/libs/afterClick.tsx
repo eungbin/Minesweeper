@@ -40,7 +40,11 @@ const findSpace_C = (board: BoardObject[][], r: number, c: number) => {
 export const openSpace = (board: BoardObject[][], r: number, c: number) => {
   if(board[r][c].value === 0) {
     findSpace(board, r, c);
+    return 'ing';
+  } else if(board[r][c].value === -1) {
+    return 'fin';
   }
+  return 'ing';
 }
 
 const isMine = (board: BoardObject[][], r: number, c: number) => {
@@ -53,6 +57,7 @@ const isMine = (board: BoardObject[][], r: number, c: number) => {
 }
 
 export const flagSpace = (board: BoardObject[][], allMines: number) => {
+  console.log("TEST");
   let mines = 0;
   let gameStatus: gameStatus = "ing";
   for(let i: number=0; i<board.length; i++) {

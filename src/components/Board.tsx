@@ -22,7 +22,7 @@ export default function Board({propsBoard, mine}: boardProps) {
       const c: number = e.target.id % boardColumn;
       if(clickStatus === "open") {
         preBoard[r][c].status = "open";
-        afterclick.openSpace(preBoard, r, c);
+        setGameStatus(afterclick.openSpace(preBoard, r, c));
       } else if(clickStatus === "flag") {
         preBoard[r][c].status = "flag";
         setGameStatus(afterclick.flagSpace(preBoard, mine));
