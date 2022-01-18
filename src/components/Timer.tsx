@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import '../css/Timer.css';
+import { gameStatus } from '../interface/BoardObject';
 
 interface Itime {
   hour: number;
@@ -6,7 +8,11 @@ interface Itime {
   sec: number;
 }
 
-export default function Timer() {
+interface TimerProps {
+  gameStatus: gameStatus;
+}
+
+export default function Timer({gameStatus}: TimerProps) {
   const initTime: Itime = {hour: 0, min: 0, sec: 0};
   const [time, setTime] = useState<Itime>(initTime);
   const currentTime = useRef(0);
@@ -24,9 +30,15 @@ export default function Timer() {
     }, 1000)
   }, []);
 
+  useEffect(() => {
+    if(gameStatus === "fin") {
+      clearInterval(timerId.current);
+    }
+  }, [time]);
+
   return (
-    <>
+    <div className="timer">
       {time?.hour}:{time?.min}:{time?.sec}
-    </>
+    </div>
   )
 }

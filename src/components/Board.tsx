@@ -7,9 +7,10 @@ import * as afterclick from '../libs/afterClick';
 interface boardProps {
   propsBoard: BoardObject[][];
   mine: number;
+  setStatus: Function;
 }
 
-export default function Board({propsBoard, mine}: boardProps) {
+export default function Board({propsBoard, mine, setStatus}: boardProps) {
   const [board, setBoard] = useState<BoardObject[][]>(propsBoard);
   const preBoard: BoardObject[][] = board;
   const [clickStatus, setClickStatus] = useState<clickStatus>('open');
@@ -17,15 +18,20 @@ export default function Board({propsBoard, mine}: boardProps) {
   const boardColumn = propsBoard[0].length;
 
   const onClick = (e) => {
+    let status: gameStatus = "ing";
     if(gameStatus === "ing") {
       const r: number = Math.floor(e.target.id / boardColumn);
       const c: number = e.target.id % boardColumn;
       if(clickStatus === "open") {
         preBoard[r][c].status = "open";
-        setGameStatus(afterclick.openSpace(preBoard, r, c));
+        status = afterclick.openSpace(preBoard, r, c);
+        setGameStatus(status);
+        setStatus(status);
       } else if(clickStatus === "flag") {
         preBoard[r][c].status = "flag";
-        setGameStatus(afterclick.flagSpace(preBoard, mine));
+        status = afterclick.openSpace(preBoard, r, c);
+        setGameStatus(status);
+        setStatus(status);
       } else if(clickStatus === "q_mark") {
         preBoard[r][c].status = "q_mark";
       }
