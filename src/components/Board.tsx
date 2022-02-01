@@ -17,21 +17,22 @@ export default function Board({propsBoard, mine, setStatus}: boardProps) {
   const [gameStatus, setGameStatus] = useState<gameStatus>("ing");
   const boardColumn = propsBoard[0].length;
 
+  const openOrFlag = (clickStatus: clickStatus, r: number, c: number, status: gameStatus) => {
+    preBoard[r][c].status = clickStatus;
+    status = afterclick.openSpace(preBoard, r, c);
+    setGameStatus(status);
+    setStatus(status);
+  }
+
   const onClick = (e) => {
     let status: gameStatus = "ing";
     if(gameStatus === "ing") {
       const r: number = Math.floor(e.target.id / boardColumn);
       const c: number = e.target.id % boardColumn;
       if(clickStatus === "open") {
-        preBoard[r][c].status = "open";
-        status = afterclick.openSpace(preBoard, r, c);
-        setGameStatus(status);
-        setStatus(status);
+        openOrFlag(clickStatus, r, c, status);
       } else if(clickStatus === "flag") {
-        preBoard[r][c].status = "flag";
-        status = afterclick.openSpace(preBoard, r, c);
-        setGameStatus(status);
-        setStatus(status);
+        openOrFlag(clickStatus, r, c, status);
       } else if(clickStatus === "q_mark") {
         preBoard[r][c].status = "q_mark";
       }
