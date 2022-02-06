@@ -19,7 +19,11 @@ export default function Board({propsBoard, mine, setStatus}: boardProps) {
 
   const openOrFlag = (clickStatus: clickStatus, r: number, c: number, status: gameStatus) => {
     preBoard[r][c].status = clickStatus;
-    status = afterclick.openSpace(preBoard, r, c);
+    if(clickStatus === "open") {
+      status = afterclick.openSpace(preBoard, r, c);
+    } else if(clickStatus === "flag") {
+      status = afterclick.flagSpace(preBoard, mine);
+    }
     setGameStatus(status);
     setStatus(status);
   }
