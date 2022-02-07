@@ -1,11 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>지뢰찾기 게임</title>
-  <script defer src="bundle.js"></script><link href="app.css" rel="stylesheet"></head>
-  <body>
-    <div id="root"></div>
-  </body>
-</html>
+<head><script defer src="bundle.js"></script></head>Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module not found: Error: Can't resolve '/Users/eungbinkim/dev/Minesweeper/node  _modules/html-webpack-plugin/lib/loader.js' in '/Users/eungbinkim/dev/Mineswee  per'
+  ModuleNotFoundError: Module not found: Error: Can't resolve '/Users/eungbinkim  /dev/Minesweeper/node_modules/html-webpack-plugin/lib/loader.js' in '/Users/eu  ngbinkim/dev/Minesweeper'
+      at /Users/eungbinkim/dev/Minesweeper/node_modules/webpack/lib/Compilation.  js:2011:28
+      at /Users/eungbinkim/dev/Minesweeper/node_modules/webpack/lib/NormalModule  Factory.js:795:13
+      at eval (eval at create (/Users/eungbinkim/dev/Minesweeper/node_modules/ta  pable/lib/HookCodeFactory.js:33:10), <anonymous>:10:1)
+      at /Users/eungbinkim/dev/Minesweeper/node_modules/webpack/lib/NormalModule  Factory.js:275:22
+      at eval (eval at create (/Users/eungbinkim/dev/Minesweeper/node_modules/ta  pable/lib/HookCodeFactory.js:33:10), <anonymous>:9:1)
+      at /Users/eungbinkim/dev/Minesweeper/node_modules/webpack/lib/NormalModule  Factory.js:431:22
+      at /Users/eungbinkim/dev/Minesweeper/node_modules/webpack/lib/NormalModule  Factory.js:124:11
+      at /Users/eungbinkim/dev/Minesweeper/node_modules/webpack/lib/NormalModule  Factory.js:632:23
+      at /Users/eungbinkim/dev/Minesweeper/node_modules/neo-async/async.js:2830:  7
+      at done (/Users/eungbinkim/dev/Minesweeper/node_modules/neo-async/async.js  :2925:13)
+  
+  - Compilation.js:2011 
+    [Minesweeper]/[webpack]/lib/Compilation.js:2011:28
+  
+  - NormalModuleFactory.js:795 
+    [Minesweeper]/[webpack]/lib/NormalModuleFactory.js:795:13
+  
+  
+  - NormalModuleFactory.js:275 
+    [Minesweeper]/[webpack]/lib/NormalModuleFactory.js:275:22
+  
+  
+  - NormalModuleFactory.js:431 
+    [Minesweeper]/[webpack]/lib/NormalModuleFactory.js:431:22
+  
+  - NormalModuleFactory.js:124 
+    [Minesweeper]/[webpack]/lib/NormalModuleFactory.js:124:11
+  
+  - NormalModuleFactory.js:632 
+    [Minesweeper]/[webpack]/lib/NormalModuleFactory.js:632:23
+  
+  - async.js:2830 
+    [Minesweeper]/[neo-async]/async.js:2830:7
+  
+  - async.js:2925 done
+    [Minesweeper]/[neo-async]/async.js:2925:13
+  
+  - child-compiler.js:169 
+    [Minesweeper]/[html-webpack-plugin]/lib/child-compiler.js:169:18
+  
+  - Compiler.js:559 
+    [Minesweeper]/[webpack]/lib/Compiler.js:559:11
+  
+  - Compiler.js:1129 
+    [Minesweeper]/[webpack]/lib/Compiler.js:1129:17
+  
+  
+  - runMicrotasks
+  
+  - task_queues:96 processTicksAndRejections
+    node:internal/process/task_queues:96:5
+  
+</pre>

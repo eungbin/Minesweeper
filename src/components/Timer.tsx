@@ -28,6 +28,7 @@ export default function Timer({gameStatus}: TimerProps) {
       setTime(parseTime);
       currentTime.current += 1;
     }, 1000)
+    return() => clearTimeout(timerId.current);
   }, []);
 
   useEffect(() => {
