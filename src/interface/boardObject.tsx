@@ -8,4 +8,4 @@ export interface BoardObject {
 
 export type clickStatus = "open" | "flag" | "q_mark";
 
-export type gameStatus = "ing" | "fin";
+export type gameStatus = "ing" | "win" | "lose";

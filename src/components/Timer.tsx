@@ -32,7 +32,10 @@ export default function Timer({gameStatus}: TimerProps) {
   }, []);
 
   useEffect(() => {
-    if(gameStatus === "fin") {
+    if(gameStatus === "win") {
+      clearInterval(timerId.current);
+      localStorage.setItem("score", time.hour.toString() + ":" + time.min.toString() + ":" + time.sec.toString());
+    } else if(gameStatus === "lose") {
       clearInterval(timerId.current);
     }
   }, [time]);

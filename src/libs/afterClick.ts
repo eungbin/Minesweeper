@@ -42,7 +42,7 @@ export const openSpace = (board: BoardObject[][], r: number, c: number) => {
     findSpace(board, r, c);
     return 'ing';
   } else if(board[r][c].value === -1) {
-    return 'fin';
+    return 'lose';
   }
   return 'ing';
 }
@@ -66,7 +66,7 @@ export const flagSpace = (board: BoardObject[][], allMines: number) => {
     }
   }
   if(mines === allMines) {
-    gameStatus = "fin";
+    gameStatus = "win";
   }
   return gameStatus;
 }

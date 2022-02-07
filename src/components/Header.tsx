@@ -7,7 +7,7 @@ const Header = () => {
     <>
       <div className="menu">
         <Link to="/"><div className="menu-item">홈</div></Link>
-        <div className="menu-item">최고점수</div>
+        <Link to="/score"><div className="menu-item">내 기록</div></Link>
         <div className="menu-item">제작자</div>
       </div>
     </>
