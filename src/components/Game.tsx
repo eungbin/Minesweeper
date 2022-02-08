@@ -7,7 +7,7 @@ import * as minesweeper from '../libs/initFunction';
 
 const boardRow: number = 10;
 const boardColumn: number = 10;
-const mine: number = 10;
+const mine: number = 3;
 
 const Game = () => {
   const preBoard: BoardObject[][] = minesweeper.createBoard(boardRow, boardColumn);
