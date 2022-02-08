@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../css/Timer.css';
 import { gameStatus } from '../interface/BoardObject';
+import * as converter from '../libs/timeConverter';
 
 interface Itime {
   hour: number;
@@ -19,18 +20,14 @@ export default function Timer({gameStatus}: TimerProps) {
   const timerId = useRef(null);
 
   const topRank = () => {
-    const past_hour: number = parseInt(localStorage.getItem("score").split(":")[0]);
-    const past_min: number = parseInt(localStorage.getItem("score").split(":")[1]);
-    const past_sec: number = parseInt(localStorage.getItem("score").split(":")[2]);
-    const past_time = (past_hour*360) + (past_min*60) + past_sec;
-    const pre_time = (time.hour*360) + (time.min*60) + time.sec;
-    
-    if(past_time >= pre_time) {
-      console.log("최고기록 갱신");
-      localStorage.setItem("score", time.hour.toString() + ":" + time.min.toString() + ":" + time.sec.toString());
-    } else {
-      return;
-    }
+    const historyList: Array<number> = [];
+    let storage: Array<number> = JSON.parse(localStorage.getItem("history"));
+    const newHistory: number = converter.timeToNum(time.hour, time.min, time.sec);
+    storage?.map(i => historyList.push(i));
+    historyList?.push(newHistory);
+    console.log(historyList);
+    historyList?.sort();
+    localStorage.setItem("history", JSON.stringify(historyList))
   }
 
   useEffect(() => {
