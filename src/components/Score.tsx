@@ -10,8 +10,10 @@ const Main = () => {
   })
   return (
     <>
-      <div className="title"><h1>최고기록</h1></div>
-      {historyList}
+      <div className="title"><h1>내 기록</h1></div>
+      <div className="history">{historyList.map((i, index) => (
+        <div key={index}>{i}</div>
+      ))}</div>
     </>
   )
 }
