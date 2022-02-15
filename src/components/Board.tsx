@@ -45,7 +45,6 @@ export default function Board({propsBoard, mine, setStatus}: boardProps) {
   }
 
   const changeClickStatus = (e) => {
-    console.log(e.target.id);
     if(e.target.id === "open")
       setClickStatus("open");
     else if(e.target.id === "flag")

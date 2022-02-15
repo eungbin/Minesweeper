@@ -25,8 +25,9 @@ export default function Timer({gameStatus}: TimerProps) {
     const newHistory: number = converter.timeToNum(time.hour, time.min, time.sec);
     storage?.map(i => historyList.push(i));
     historyList?.push(newHistory);
-    console.log(historyList);
-    historyList?.sort();
+    historyList?.sort(function(a, b) {
+      return a-b;
+    });
     localStorage.setItem("history", JSON.stringify(historyList))
   }
 

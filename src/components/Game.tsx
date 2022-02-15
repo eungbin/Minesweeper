@@ -17,7 +17,6 @@ const Game = () => {
 
   const setGameStatus = (status: gameStatus) => {
     setStatus(status);
-    console.log(status);
   }
   
   return (

@@ -6,7 +6,7 @@ const Main = () => {
   const myScore: Array<number> = JSON.parse(localStorage.getItem("history"));
   const historyList: Array<string> = [];
   myScore?.map(i => {
-    historyList?.push(converter.numToTime_string(i));
+    historyList?.push(converter.numToTime_timeForm(i));
   })
   return (
     <>

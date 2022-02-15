@@ -57,7 +57,6 @@ const isMine = (board: BoardObject[][], r: number, c: number) => {
 }
 
 export const flagSpace = (board: BoardObject[][], allMines: number) => {
-  console.log("TEST");
   let mines = 0;
   let gameStatus: gameStatus = "ing";
   for(let i: number=0; i<board.length; i++) {
