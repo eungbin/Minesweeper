@@ -16,20 +16,26 @@ export default function Td({column, onClick}: tdProps) {
 
   if(column.status === "close") {
     return (
-      <td className="boardTd" onClick={onTdClick} id={column.index.toString()}>
-        
+      <td className="boardTd">
+        <div className="cell"><img src="imgs/default.png" onClick={onTdClick} id={column.index.toString()} /></div>
       </td>
     )
-  } else if(column.status === "open") {
+  } else if(column.status === "open" && column.value !== -1) {
     return (
       <td className="boardTd" id={column.index.toString()}>
-        {column.value}
+        <div className="cell"><img src={"imgs/empty" + column.value + ".png"}/></div>
+      </td>
+    )
+  } else if(column.status === "open" && column.value === -1) {
+    return (
+      <td className="boardTd" id={column.index.toString()}>
+        <div className="cell"><img src="imgs/mine.png"/></div>
       </td>
     )
   } else if(column.status === "flag") {
     return (
-      <td className="boardTd" onClick={onTdClick} style={{backgroundColor:"pink"}} id={column.index.toString()}>
-        F
+      <td className="boardTd">
+        <div className="cell"><img src="imgs/flag.png" onClick={onTdClick} id={column.index.toString()}/></div>
       </td>
     )
   } else if(column.status === "q_mark") {
