@@ -1,7 +1,12 @@
 .boardTd {
   width: 30px;
   height: 30px;
+  border: 1px solid black;
   border-spacing: 0px;
+}
+
+.closeCell {
+  box-shadow: 1px 1px 1px;
 }
 
 img {
@@ -10,4 +15,8 @@ img {
 
 .cell {
   height: 100%;
+}
+
+.openNumber {
+  
 }
