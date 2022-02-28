@@ -8,8 +8,9 @@ import Score from './components/Score';
 
 const App = () => {
   console.log("배포 됐니...?");
+  console.log(process.env.PUBLIC_URL);
   return (
-    <BrowserRouter basename={process.env.PUBLIC_PATH}>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="container">
         <Header />
         <Routes>
