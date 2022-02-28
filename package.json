@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/eungbin/Minesweeper/issues"
   },
-  "homepage": "http://eungbin.github.io/Minesweeper",
+  "homepage": "https://eungbin.github.io/Minesweeper/",
   "dependencies": {
     "@types/react-router-dom": "^5.3.2",
     "dotenv": "^16.0.0",

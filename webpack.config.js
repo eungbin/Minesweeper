@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const Dotenv = require("dotenv-webpack");
+const webpack = require("webpack");
 
 module.exports = {
   mode: 'development',
@@ -64,5 +65,8 @@ module.exports = {
     new MiniCssExtractPlugin({ filename: 'app.css' }),
     new ForkTsCheckerWebpackPlugin(),
     new Dotenv(),
+    // new webpack.DefinePlugin({
+    //   "process.env": JSON.stringify(process.env),
+    // }),
   ],
 };
