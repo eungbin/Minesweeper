@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import './css/App.css';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Main from './components/Main';
 import Header from './components/Header';
 import Game from './components/Game';
 import Score from './components/Score';
 
 const App = () => {
+  console.log("배포 됐니...?");
   return (
-    <HashRouter>
+    <BrowserRouter basename={process.env.PUBLIC_PATH}>
       <div className="container">
         <Header />
         <Routes>
@@ -17,7 +18,7 @@ const App = () => {
           <Route path="/score" element={<Score />} />
         </Routes>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
