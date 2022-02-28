@@ -9,7 +9,7 @@ import Score from './components/Score';
 const App = () => {
 
   return (
-    <BrowserRouter basename="https://eungbin.github.io/Minesweeper">
+    <BrowserRouter basename="/Minesweeper">
       <div className="container">
         <Header />
         <Routes>
