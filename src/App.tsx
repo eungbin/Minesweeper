@@ -7,8 +7,9 @@ import Game from './components/Game';
 import Score from './components/Score';
 
 const App = () => {
+
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename="https://eungbin.github.io/Minesweeper">
       <div className="container">
         <Header />
         <Routes>
