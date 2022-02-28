@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './css/App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Main from './components/Main';
 import Header from './components/Header';
 import Game from './components/Game';
@@ -8,7 +8,7 @@ import Score from './components/Score';
 
 const App = () => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <div className="container">
         <Header />
         <Routes>
@@ -17,7 +17,7 @@ const App = () => {
           <Route path="/score" element={<Score />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
