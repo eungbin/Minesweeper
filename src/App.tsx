@@ -7,7 +7,7 @@ import Game from './components/Game';
 import Score from './components/Score';
 
 const App = () => {
-  console.log("배포 됐니...?");
+  console.log("제발... 혹시... 배포 됐니...?");
   console.log(process.env.PUBLIC_URL);
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
