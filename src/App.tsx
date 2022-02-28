@@ -8,7 +8,7 @@ import Score from './components/Score';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="container">
         <Header />
         <Routes>
